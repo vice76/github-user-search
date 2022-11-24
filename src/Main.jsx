@@ -4,6 +4,7 @@ import "./main.css";
 import SearchIcon from "@mui/icons-material/Search";
 import User from "./components/user/User";
 import Repo from "./components/repo/Repo";
+
 const Main = () => {
   const [reponame, setReponame] = useState("");
   const [repodata, setRepodata] = useState([]);

@@ -12,7 +12,7 @@ const Repo = ({ repodata }) => {
       d.push(<Repocard repo={repodata[i]} key={repodata[i].id}></Repocard>);
     }
     setDt(d);
-  }, [page]);
+  }, [page, dt]);
 
   return (
     <>
