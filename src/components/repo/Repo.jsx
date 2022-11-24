@@ -8,8 +8,8 @@ const Repo = ({ repodata }) => {
 
   useEffect(() => {
     var d = [];
-    for (var i = (page - 1) * 6; i < page * 6; i++) {
-      d.push(<Repocard repo={repodata[i]} key={repodata[i].id}></Repocard>);
+    for (var i = (page - 1) * 6; i < Math.min(page * 6, repodata.length); i++) {
+      d.push(<Repocard repo={repodata[i]} key={repodata[i].name}></Repocard>);
     }
     setDt(d);
   }, [page, dt]);
@@ -18,12 +18,12 @@ const Repo = ({ repodata }) => {
     <>
       <div className="data"> {dt}</div>
       <Pagination
-        count={Math.floor(repodata.length / 6)}
+        count={Math.ceil(repodata.length / 6)}
         onChange={(pn) => {
           setPage(pn.target.textContent);
         }}
-        hidePrevButton
-        hideNextButton
+        // hidePrevButton
+        // hideNextButton
         style={{ display: "Flex", justifyContent: "center" }}
         variant="outlined"
         shape="rounded"
